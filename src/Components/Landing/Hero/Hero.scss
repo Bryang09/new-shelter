@@ -1,0 +1,66 @@
+$button: #4d6bff;
+
+.Hero {
+  height: 100vh;
+  display: flex;
+
+  .heroImg {
+    background: url(../img/hero.jpg) no-repeat center center / cover;
+    height: 100vh;
+    width: 50vw;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50vw;
+
+    h1 {
+      font-size: 40px;
+    }
+
+    h5 {
+      padding: 2vh 2vw;
+      border-radius: 30px;
+      cursor: pointer;
+      background: $button;
+      color: #fff;
+      font-weight: 400;
+      box-shadow: 3px 4px 20px $button;
+      animation: button 1s ease;
+    }
+  }
+
+  .shelterZip {
+    margin-top: 5vh;
+    animation: input 1s ease;
+    transform: translateY(-3vh);
+    input {
+      outline: none;
+      border: 1px solid $button;
+      text-align: center;
+      padding: 1vh 5vw;
+      border-radius: 5px;
+    }
+  }
+}
+
+@keyframes button {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes input {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
