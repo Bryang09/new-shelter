@@ -10,6 +10,7 @@ import SmallAnimals from "./Components/AnimalDisplay/SmallAnimals/SmallAnimals";
 import Birds from "./Components/AnimalDisplay/Birds/Birds";
 import Farm from "./Components/AnimalDisplay/Farm/Farm";
 import Reptiles from "./Components/AnimalDisplay/Reptiles/Reptiles";
+import Horses from "./Components/AnimalDisplay/Horses/Horses";
 
 const Routes = () => {
   return (
@@ -46,6 +47,10 @@ const Routes = () => {
       <Route
         path="/reptiles/:zip/:page"
         render={props => <Reptiles key={props.match.params.page} {...props} />}
+      />
+      <Route
+        path="/horses/:zip/:page"
+        render={props => <Horses key={props.match.params.page} {...props} />}
       />
     </Switch>
   );
