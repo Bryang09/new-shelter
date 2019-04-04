@@ -10,7 +10,11 @@ const Routes = () => {
     <Switch>
       <Route exact path="/" component={Landing} />
       <Route exact path="/shelters/:id" component={Shelters} />
-      <Route exact path="/shelter/:id" component={Shelter} />
+      {/* <Route exact path="/shelter/:id/:page" component={Shelter} /> */}
+      <Route
+        path="/shelter/:id/:page"
+        render={props => <Shelter key={props.match.params.page} {...props} />}
+      />
     </Switch>
   );
 };

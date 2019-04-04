@@ -6,3 +6,7 @@ body {
 button[type="submit"] {
   display: none;
 }
+
+a {
+  text-decoration: none;
+}

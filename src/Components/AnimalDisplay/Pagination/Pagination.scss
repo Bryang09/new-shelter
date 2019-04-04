@@ -1,0 +1,33 @@
+.Pagination {
+  display: flex;
+  width: 20vw;
+  margin: 1vh auto;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    width: 33.33%;
+    color: #333;
+
+    &:hover {
+      background: #4d6bff;
+      color: #fff;
+    }
+  }
+  h4 {
+    width: 100%;
+    border: 1px solid #eee;
+    height: 100%;
+    margin: 0;
+    padding: 1vh 0;
+  }
+}
+
+.Pagination .active {
+  background: #4d6bff;
+  color: #fff;
+
+  &:hover {
+    background: lighten(#4d6bff, 2%);
+  }
+}

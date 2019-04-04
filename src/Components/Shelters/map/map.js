@@ -17,7 +17,7 @@ const Map = props => {
     console.log(`Even ${even} Odd ${odd} Threes ${threes}`);
 
     return (
-      <Link to={`/shelter/${res.id.$t}`}>
+      <Link to={`/shelter/${res.id.$t}/1`}>
         <div
           className={
             even && threes
