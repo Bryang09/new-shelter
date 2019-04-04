@@ -23,7 +23,7 @@ const Routes = () => {
         render={props => <Shelter key={props.match.params.page} {...props} />}
       />
       <Route
-        path="/dogs/:zip/:page"
+        path="/dogs/:zip/:page/:breed?/:sex?/:size?"
         render={props => <Dogs key={props.match.params.page} {...props} />}
       />
       <Route

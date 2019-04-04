@@ -5,10 +5,14 @@ import { REQUEST, KEY } from "../../keys";
 import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 import Nav from "../../Nav/Nav";
+import Sort from "../Sort/Sort";
 
 class Dogs extends Component {
   state = {
-    animals: null
+    animals: null,
+    Breed: "",
+    Size: "",
+    Sex: ""
   };
 
   componentWillMount = () => {
@@ -25,6 +29,10 @@ class Dogs extends Component {
       .catch(err => console.log(err));
   };
 
+  onDogBreed = e => {
+    console.log(e);
+  };
+
   render() {
     const { animals } = this.state;
 
@@ -34,7 +42,7 @@ class Dogs extends Component {
     return (
       <div className="Shelter">
         <Nav />
-        <h1>Shelter</h1>
+        <Sort type="dog" />
         {animals !== null ? (
           <Display animals={animals} />
         ) : (
