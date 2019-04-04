@@ -6,6 +6,7 @@ import Shelters from "./Components/Shelters/Shelters";
 import Shelter from "./Components/AnimalDisplay/Shelter/Shelter";
 import Dogs from "./Components/AnimalDisplay/Dogs/Dogs";
 import Cats from "./Components/AnimalDisplay/Cats/Cats";
+import SmallAnimals from "./Components/AnimalDisplay/SmallAnimals/SmallAnimals";
 
 const Routes = () => {
   return (
@@ -24,6 +25,12 @@ const Routes = () => {
       <Route
         path="/cats/:zip/:page"
         render={props => <Cats key={props.match.params.page} {...props} />}
+      />
+      <Route
+        path="/smallAnimals/:zip/:page"
+        render={props => (
+          <SmallAnimals key={props.match.params.page} {...props} />
+        )}
       />
     </Switch>
   );
