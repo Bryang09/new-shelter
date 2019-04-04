@@ -4,6 +4,8 @@ import { Switch, Route } from "react-router-dom";
 import Landing from "./Components/Landing/Landing";
 import Shelters from "./Components/Shelters/Shelters";
 import Shelter from "./Components/AnimalDisplay/Shelter/Shelter";
+import Dogs from "./Components/AnimalDisplay/Dogs/Dogs";
+import Cats from "./Components/AnimalDisplay/Cats/Cats";
 
 const Routes = () => {
   return (
@@ -14,6 +16,14 @@ const Routes = () => {
       <Route
         path="/shelter/:id/:page"
         render={props => <Shelter key={props.match.params.page} {...props} />}
+      />
+      <Route
+        path="/dogs/:zip/:page"
+        render={props => <Dogs key={props.match.params.page} {...props} />}
+      />
+      <Route
+        path="/cats/:zip/:page"
+        render={props => <Cats key={props.match.params.page} {...props} />}
       />
     </Switch>
   );

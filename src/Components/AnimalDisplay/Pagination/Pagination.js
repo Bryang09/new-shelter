@@ -7,10 +7,17 @@ import { Link } from "react-router-dom";
 const Pagination = props => {
   const { type, zipOrId, page, animals } = props;
 
-  console.log(animals);
+  console.log(animals.length);
+
+  const display = animals.length >= 50;
+
+  console.log(display);
 
   return (
-    <div className="Pagination">
+    <div
+      className="Pagination"
+      style={display ? { display: "flex" } : { display: "none" }}
+    >
       <Link
         to={`/${type}/${zipOrId}/1`}
         className={parseInt(page) === 1 ? "active" : null}

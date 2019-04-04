@@ -6,21 +6,20 @@ import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 import Nav from "../../Nav/Nav";
 
-class Shelter extends Component {
+class Dogs extends Component {
   state = {
     animals: null
   };
 
   componentWillMount = () => {
-    const id = this.props.match.params.id;
+    const zip = parseInt(this.props.match.params.zip);
     const page = parseInt(this.props.match.params.page);
     const offset = page === 1 ? 0 : page === 2 ? 50 : page === 3 ? 100 : 1;
     const count = 50;
 
     axios
       .get(
-        `${REQUEST}/shelter.getPets?format=json&key=${KEY}&id=${id}&offset=${offset}
-        &count=${count}`
+        `${REQUEST}/pet.find?format=json&key=${KEY}&location=${zip}&offset=${offset}&animal=dog&count=${count}`
       )
       .then(res => this.setState({ animals: res.data.petfinder.pets.pet }))
       .catch(err => console.log(err));
@@ -29,12 +28,8 @@ class Shelter extends Component {
   render() {
     const { animals } = this.state;
 
-    // console.log(animals.length);
-
     const page = this.props.match.params.page;
-    const id = this.props.match.params.id;
-
-    console.log(page);
+    const zip = this.props.match.params.zip;
 
     return (
       <div className="Shelter">
@@ -47,16 +42,11 @@ class Shelter extends Component {
         )}
 
         {animals !== null ? (
-          <Pagination
-            type="shelter"
-            zipOrId={id}
-            page={page}
-            animals={animals}
-          />
+          <Pagination type="dogs" zipOrId={zip} page={page} animals={animals} />
         ) : null}
       </div>
     );
   }
 }
 
-export default Shelter;
+export default Dogs;
