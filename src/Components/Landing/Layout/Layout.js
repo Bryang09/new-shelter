@@ -29,9 +29,9 @@ const Layout = props => {
   const layout = lay.map(res => {
     const checkDogs = res.name === "Dogs";
     const checkCats = res.name === "Cats";
-    const checkSmallAnimals = res.name === "SmallAnimals";
+    const checkSmallAnimals = res.name === "Small Animals";
     const checkBirds = res.name === "Birds";
-    const checkFarmAnimals = res.name === "FarmAnimals";
+    const checkFarmAnimals = res.name === "Farm Animals";
     const checkReptile = res.name === "Reptiles";
     const checkHorse = res.name === "Horses";
 

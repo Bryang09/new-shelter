@@ -1,3 +1,5 @@
+$color: #4d6bff;
+
 .Layout {
   min-height: 100vh;
   max-height: 100%;
@@ -19,6 +21,46 @@
       background: #fafafa;
       height: 40vh;
       display: flex;
+      transition: 1s ease;
+
+      &:nth-child(1) {
+        &:hover {
+          background: $color;
+          color: #fff;
+        }
+      }
+
+      &:nth-child(2) {
+        &:hover {
+          background: #f178c0;
+          color: #fff;
+        }
+      }
+
+      &:nth-child(3) {
+        &:hover {
+          background: #f94949;
+          color: #fff;
+        }
+      }
+      &:nth-child(4) {
+        &:hover {
+          background: #69dcb8;
+          color: #fff;
+        }
+      }
+      &:nth-child(5) {
+        &:hover {
+          background: #574294;
+          color: #fff;
+        }
+      }
+      &:nth-child(6) {
+        &:hover {
+          background: #3585a5;
+          color: #fff;
+        }
+      }
 
       .img {
         width: 50%;
@@ -30,6 +72,14 @@
         justify-content: center;
         align-items: center;
         width: 50%;
+
+        input[type="text"] {
+          padding: 1vh 1vw;
+          border: none;
+          &:active {
+            border: 1px solid $color;
+          }
+        }
       }
     }
 
@@ -38,6 +88,33 @@
       height: 40vh;
       background: #333;
       margin: 2vh auto;
+      display: flex;
+      transition: 1s ease;
+
+      .input {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        input[type="text"] {
+          padding: 1vh 1vw;
+          border: none;
+          &:active {
+            border: 1px solid $color;
+          }
+        }
+      }
+
+      .img {
+        width: 50%;
+      }
+
+      &:hover {
+        background: #2d5d90;
+        color: #fff;
+      }
     }
   }
 }

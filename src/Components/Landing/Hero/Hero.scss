@@ -31,6 +31,11 @@ $button: #4d6bff;
       font-weight: 400;
       box-shadow: 3px 4px 20px $button;
       animation: button 1s ease;
+      transition: 1s ease;
+
+      &:hover {
+        box-shadow: none;
+      }
     }
   }
 

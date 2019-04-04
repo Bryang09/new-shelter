@@ -67,23 +67,14 @@ class Landing extends Component {
   render() {
     const {
       shelter,
-      onShelterShow,
       shelterZip,
-      onShelter,
       dogZip,
-      onDog,
       catZip,
-      onCat,
       smallAnimalZip,
-      onSmallAnimal,
       birdZip,
-      onBird,
       farmZip,
-      onFarm,
       reptileZip,
-      onReptile,
-      horseZip,
-      onHorse
+      horseZip
     } = this.state;
 
     console.log(dogZip);
