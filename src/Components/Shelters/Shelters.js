@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import { KEY, REQUEST } from "../keys";
+import Nav from "../Nav/Nav";
+import Map from "./map/map";
+
+import "./Shelters.scss";
 
 class Shelters extends Component {
   state = {
@@ -20,11 +24,17 @@ class Shelters extends Component {
       .catch(err => console.log(err));
   };
   render() {
-    console.log(this.state.shelters);
+    const zip = this.props.match.params.id;
+
+    const { shelters } = this.state;
 
     return (
       <div className="Shelters">
-        <h1>Shelters</h1>
+        <Nav />
+        <h1>
+          Showing Results For <span>{zip}</span>
+        </h1>
+        {shelters !== null ? <Map shelters={shelters} /> : "Searching ..."}
       </div>
     );
   }
