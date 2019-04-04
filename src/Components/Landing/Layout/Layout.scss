@@ -73,6 +73,10 @@ $color: #4d6bff;
         align-items: center;
         width: 50%;
 
+        h3 {
+          font-size: 20px;
+        }
+
         input[type="text"] {
           padding: 1vh 1vw;
           border: none;
@@ -97,6 +101,7 @@ $color: #4d6bff;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
 
         input[type="text"] {
           padding: 1vh 1vw;
@@ -167,4 +172,9 @@ $color: #4d6bff;
     no-repeat center center / contain;
   height: 80%;
   margin: auto 0;
+}
+
+h4 {
+  font-size: 20px;
+  text-align: center;
 }
