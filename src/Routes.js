@@ -54,7 +54,7 @@ const Routes = () => {
         render={props => <Horses key={props.match.params.page} {...props} />}
       />
       <Route
-        path="/filter/:page/:zip/:animal?/:size?/:sex?"
+        path="/filter/:page/:zip/:animal/:breed/:size?/:sex?"
         render={props => <Filtered key={props.match.params.page} {...props} />}
       />
     </Switch>

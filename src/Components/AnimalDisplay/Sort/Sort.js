@@ -13,17 +13,26 @@ class Sort extends Component {
   };
 
   componentWillMount = () => {
-    const type = this.props.type;
+    const animal = this.props.animal;
     // http://api.petfinder.com/breed.list?format=json&key=8b5f42ac4293d90c5c5cf549de61e57a&animal=dog
     axios
-      .get(`${REQUEST}/breed.list?format=json&key=${KEY}&animal=${type}`)
+      .get(`${REQUEST}/breed.list?format=json&key=${KEY}&animal=${animal}`)
       .then(res => this.setState({ breeds: res.data.petfinder.breeds.breed }))
       .catch(err => console.log(err));
   };
 
   render() {
     const { breeds } = this.state;
-    const { onBreed, onSize, onSex, Breed, Size, Sex, zip, type } = this.props;
+    const {
+      onBreed,
+      onSize,
+      onSex,
+      Breed,
+      Size,
+      Sex,
+      zip,
+      animal
+    } = this.props;
 
     const checkBreed = Breed.length > 0;
     const checkSize = Size.length > 0;
@@ -64,26 +73,26 @@ class Sort extends Component {
           to={
             // CHECK ALL
             checkBreed && checkSize && checkSex
-              ? `/filter/1/${zip}/${Breed}/${Size}/${Sex}`
+              ? `/filter/1/${zip}/${animal}/${Breed}/${Size}/${Sex}`
               : // CHECK BREED AND SIZE
               checkBreed && checkSize
-              ? `/filter/1/${zip}/${Breed}/${Size}/both`
+              ? `/filter/1/${zip}/${animal}/${Breed}/${Size}/both`
               : // CHECK BREED AND SEX
               checkBreed && checkSex
-              ? `/filter/1/${zip}/${Breed}/any/${Sex}`
+              ? `/filter/1/${zip}/${animal}/${Breed}/any/${Sex}`
               : // CHECK Size AND SEX
               checkSize && checkSex
-              ? `/filter/1/${zip}/all/${Size}/${Sex}`
+              ? `/filter/1/${zip}/${animal}/all/${Size}/${Sex}`
               : // CHECK BREED
               checkBreed
-              ? `/filter/1/${zip}/${Breed}/any/both`
+              ? `/filter/1/${zip}/${animal}/${Breed}/any/both`
               : // CHECK SIZE
               checkSize
-              ? `/filter/1/${zip}/all/${Size}/both`
+              ? `/filter/1/${zip}/${animal}/all/${Size}/both`
               : // CHECK SEX
               checkSex
-              ? `/filter/1/${zip}/all/any/${Sex}`
-              : null
+              ? `/filter/1/${zip}/${animal}/all/any/${Sex}`
+              : "/"
           }
           style={
             checkBreed || checkSex || checkSize

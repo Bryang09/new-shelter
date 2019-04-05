@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./Display.scss";
-import Pagination from "./Pagination/Pagination";
 
 const Display = props => {
   const { animals } = props;
