@@ -4,8 +4,6 @@ import "./Display.scss";
 import Pagination from "./Pagination/Pagination";
 
 const Display = props => {
-  console.log(props);
-
   const { animals } = props;
 
   const animal = animals.map((res, i) => {

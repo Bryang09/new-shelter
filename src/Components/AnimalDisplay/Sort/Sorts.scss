@@ -1,3 +1,5 @@
+$button: #4d6bff;
+
 .Sort {
   height: 150px;
   width: 50vw;
@@ -12,6 +14,25 @@
     align-items: center;
     flex-direction: column;
   }
+
+  a {
+    height: 20%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5vh 1.5vw;
+    border-radius: 35px;
+    box-shadow: 3px 4px 20px $button;
+    background: $button;
+    color: #fff;
+    animation: button 1s ease;
+
+    h4 {
+      margin: 0;
+      font-weight: 400;
+    }
+  }
 }
 
 select {
@@ -22,4 +43,13 @@ select {
   border: 1px solid #eee;
   padding: 1vh 1vw;
   cursor: pointer;
+}
+
+@keyframes button {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

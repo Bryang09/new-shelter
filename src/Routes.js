@@ -11,6 +11,7 @@ import Birds from "./Components/AnimalDisplay/Birds/Birds";
 import Farm from "./Components/AnimalDisplay/Farm/Farm";
 import Reptiles from "./Components/AnimalDisplay/Reptiles/Reptiles";
 import Horses from "./Components/AnimalDisplay/Horses/Horses";
+import Filtered from "./Components/AnimalDisplay/Filtered/Filtered";
 
 const Routes = () => {
   return (
@@ -23,7 +24,7 @@ const Routes = () => {
         render={props => <Shelter key={props.match.params.page} {...props} />}
       />
       <Route
-        path="/dogs/:zip/:page/:breed?/:sex?/:size?"
+        path="/dogs/:zip/:page"
         render={props => <Dogs key={props.match.params.page} {...props} />}
       />
       <Route
@@ -51,6 +52,10 @@ const Routes = () => {
       <Route
         path="/horses/:zip/:page"
         render={props => <Horses key={props.match.params.page} {...props} />}
+      />
+      <Route
+        path="/filter/:page/:zip/:animal?/:size?/:sex?"
+        render={props => <Filtered key={props.match.params.page} {...props} />}
       />
     </Switch>
   );
