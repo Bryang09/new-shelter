@@ -27,7 +27,7 @@ export const lay = [
     name: "Small Animals",
     changing: "onSmallAnimal",
     inputName: "smallAnimal",
-    linkingDirection: "/smallAnimals",
+    linkingDirection: "/smallfurrys",
     zip: "smallAnimalZip"
   },
   {

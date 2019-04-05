@@ -5,10 +5,14 @@ import { REQUEST, KEY } from "../../keys";
 import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 import Nav from "../../Nav/Nav";
+import Sort from "../Sort/Sort";
 
 class Reptiles extends Component {
   state = {
-    animals: null
+    animals: null,
+    Breed: "",
+    Size: "",
+    Sex: ""
   };
 
   componentWillMount = () => {
@@ -25,8 +29,20 @@ class Reptiles extends Component {
       .catch(err => console.log(err));
   };
 
+  onBreed = e => {
+    this.setState({ Breed: e.target.value });
+  };
+
+  onSize = e => {
+    this.setState({ Size: e.target.value });
+  };
+
+  onSex = e => {
+    this.setState({ Sex: e.target.value });
+  };
+
   render() {
-    const { animals } = this.state;
+    const { animals, Breed, Size, Sex } = this.state;
 
     const page = this.props.match.params.page;
     const zip = this.props.match.params.zip;
@@ -34,7 +50,16 @@ class Reptiles extends Component {
     return (
       <div className="Shelter">
         <Nav />
-        <h1>Shelter</h1>
+        <Sort
+          animal="reptile"
+          onBreed={this.onBreed}
+          onSize={this.onSize}
+          onSex={this.onSex}
+          Breed={Breed}
+          Size={Size}
+          Sex={Sex}
+          zip={zip}
+        />
         {animals !== null && animals[1] ? (
           <Display animals={animals} />
         ) : (
@@ -43,7 +68,7 @@ class Reptiles extends Component {
 
         {animals !== null ? (
           <Pagination
-            type="reptiles"
+            direction={`reptiles`}
             zipOrId={zip}
             page={page}
             animals={animals}
