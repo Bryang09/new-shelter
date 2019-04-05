@@ -7,6 +7,8 @@ import Sort from "../Sort/Sort";
 import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 
+import { Link } from "react-router-dom";
+
 class Filtered extends Component {
   state = {
     animals: null,
@@ -14,6 +16,7 @@ class Filtered extends Component {
     Size: "",
     Sex: ""
   };
+
   componentWillMount = () => {
     const zip = parseInt(this.props.match.params.zip);
     const page = parseInt(this.props.match.params.page);
@@ -28,7 +31,7 @@ class Filtered extends Component {
     const checkSize = size !== "any";
     const checkSex = sex !== "both";
 
-    console.log(checkBreed, checkSize, checkSex);
+    console.log(`Breed ${breed}, Animal: ${animal}`);
 
     // CHECK ALL
     checkBreed && checkSize && checkSex
@@ -118,16 +121,9 @@ class Filtered extends Component {
     return (
       <div className="Shelter">
         <Nav />
-        <Sort
-          animal="dog"
-          onBreed={this.onBreed}
-          onSize={this.onSize}
-          onSex={this.onSex}
-          Breed={Breed}
-          Size={Size}
-          Sex={Sex}
-          zip={zip}
-        />
+        <Link to={`/${animal}s/${zip}/1`}>
+          <h5>Search New Filter</h5>
+        </Link>
         {animals !== null ? (
           <Display animals={animals} />
         ) : (

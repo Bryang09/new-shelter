@@ -14,6 +14,8 @@ class Sort extends Component {
 
   componentWillMount = () => {
     const animal = this.props.animal;
+
+    console.log(`animal: ${animal}`);
     // http://api.petfinder.com/breed.list?format=json&key=8b5f42ac4293d90c5c5cf549de61e57a&animal=dog
     axios
       .get(`${REQUEST}/breed.list?format=json&key=${KEY}&animal=${animal}`)
@@ -37,6 +39,8 @@ class Sort extends Component {
     const checkBreed = Breed.length > 0;
     const checkSize = Size.length > 0;
     const checkSex = Sex.length > 0;
+
+    console.log(this.props.animal);
 
     return (
       <div className="Sort">

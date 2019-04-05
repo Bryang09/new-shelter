@@ -6,9 +6,14 @@ import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 import Nav from "../../Nav/Nav";
 
+import Sort from "../Sort/Sort";
+
 class Cats extends Component {
   state = {
-    animals: null
+    animals: null,
+    Breed: "",
+    Size: "",
+    Sex: ""
   };
 
   componentWillMount = () => {
@@ -25,8 +30,20 @@ class Cats extends Component {
       .catch(err => console.log(err));
   };
 
+  onBreed = e => {
+    this.setState({ Breed: e.target.value });
+  };
+
+  onSize = e => {
+    this.setState({ Size: e.target.value });
+  };
+
+  onSex = e => {
+    this.setState({ Sex: e.target.value });
+  };
+
   render() {
-    const { animals } = this.state;
+    const { animals, Breed, Size, Sex } = this.state;
 
     const page = this.props.match.params.page;
     const zip = this.props.match.params.zip;
@@ -34,7 +51,16 @@ class Cats extends Component {
     return (
       <div className="Shelter">
         <Nav />
-        <h1>Shelter</h1>
+        <Sort
+          animal="cat"
+          onBreed={this.onBreed}
+          onSize={this.onSize}
+          onSex={this.onSex}
+          Breed={Breed}
+          Size={Size}
+          Sex={Sex}
+          zip={zip}
+        />
         {animals !== null ? (
           <Display animals={animals} />
         ) : (
@@ -42,7 +68,12 @@ class Cats extends Component {
         )}
 
         {animals !== null ? (
-          <Pagination type="cats" zipOrId={zip} page={page} animals={animals} />
+          <Pagination
+            direction={`cats`}
+            zipOrId={zip}
+            page={page}
+            animals={animals}
+          />
         ) : null}
       </div>
     );
