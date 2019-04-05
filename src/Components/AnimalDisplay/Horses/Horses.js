@@ -35,7 +35,7 @@ class Horses extends Component {
       <div className="Shelter">
         <Nav />
         <h1>Shelter</h1>
-        {animals !== null ? (
+        {animals !== null && animals[1] ? (
           <Display animals={animals} />
         ) : (
           <h1>Searching...</h1>

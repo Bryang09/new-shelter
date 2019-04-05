@@ -116,6 +116,7 @@ class Filtered extends Component {
     const size = this.props.match.params.size;
     const sex = this.props.match.params.sex;
 
+    console.log(animals === undefined);
     console.log(animals);
 
     return (
@@ -124,13 +125,15 @@ class Filtered extends Component {
         <Link to={`/${animal}s/${zip}/1`}>
           <h5>Search New Filter</h5>
         </Link>
-        {animals !== null ? (
+        {animals === undefined || animals === null ? (
+          <h4>No Results Found</h4>
+        ) : animals !== null && animals[1] ? (
           <Display animals={animals} />
         ) : (
           <h1>Searching...</h1>
         )}
 
-        {animals !== null ? (
+        {animals !== null && animals !== undefined ? (
           <Pagination
             direction={`filter`}
             afterAnimal={`${breed}/${size}/${sex}`}

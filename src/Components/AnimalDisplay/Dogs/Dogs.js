@@ -62,7 +62,7 @@ class Dogs extends Component {
           Sex={Sex}
           zip={zip}
         />
-        {animals !== null ? (
+        {animals !== null && animals[1] ? (
           <Display animals={animals} />
         ) : (
           <h1>Searching...</h1>

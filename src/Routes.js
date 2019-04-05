@@ -32,7 +32,7 @@ const Routes = () => {
         render={props => <Cats key={props.match.params.page} {...props} />}
       />
       <Route
-        path="/smallAnimals/:zip/:page"
+        path="/smallfurrys/:zip/:page"
         render={props => (
           <SmallAnimals key={props.match.params.page} {...props} />
         )}
