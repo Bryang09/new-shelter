@@ -6,6 +6,7 @@ import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 import Nav from "../../Nav/Nav";
 import Sort from "../Sort/Sort";
+import NotFound from "../NotFound/NotFound";
 
 class SmallAnimals extends Component {
   state = {
@@ -49,31 +50,31 @@ class SmallAnimals extends Component {
 
     return (
       <div className="Shelter">
-        <Nav />
-        <Sort
-          animal="smallfurry"
-          onBreed={this.onBreed}
-          onSize={this.onSize}
-          onSex={this.onSex}
-          Breed={Breed}
-          Size={Size}
-          Sex={Sex}
-          zip={zip}
-        />
-        {animals !== null && animals[1] ? (
-          <Display animals={animals} />
+        {animals === undefined || animals === null ? (
+          <NotFound />
         ) : (
-          <h1>Searching...</h1>
+          <>
+            <Nav />
+            <Sort
+              animal="smallfurry"
+              onBreed={this.onBreed}
+              onSize={this.onSize}
+              onSex={this.onSex}
+              Breed={Breed}
+              Size={Size}
+              Sex={Sex}
+              zip={zip}
+            />
+            <Display animals={animals} />
+            <Pagination
+              direction={`smallfurrys`}
+              zipOrId={zip}
+              page={page}
+              animals={animals}
+            />
+            <Nav />
+          </>
         )}
-
-        {animals !== null ? (
-          <Pagination
-            direction={`smallfurrys`}
-            zipOrId={zip}
-            page={page}
-            animals={animals}
-          />
-        ) : null}
       </div>
     );
   }

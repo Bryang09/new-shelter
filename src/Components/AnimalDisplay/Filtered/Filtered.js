@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import { REQUEST, KEY } from "../../keys";
 import Nav from "../../Nav/Nav";
-import Sort from "../Sort/Sort";
 import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 
 import { Link } from "react-router-dom";
+import NotFound from "../NotFound/NotFound";
 
 class Filtered extends Component {
   state = {
@@ -103,8 +103,9 @@ class Filtered extends Component {
   onSex = e => {
     this.setState({ Sex: e.target.value });
   };
+
   render() {
-    const { animals, Breed, Size, Sex } = this.state;
+    const { animals } = this.state;
 
     const page = this.props.match.params.page;
     const zip = this.props.match.params.zip;
@@ -115,31 +116,27 @@ class Filtered extends Component {
 
     return (
       <div className="Shelter">
-        <Nav />
-        <div className="filterLink">
-          <Link to={`/${animal}s/${zip}/1`}>
-            <h5>Search New Filter</h5>
-          </Link>
-        </div>
-
         {animals === undefined || animals === null ? (
-          <h4>No Results Found</h4>
-        ) : animals !== null && animals[1] ? (
-          <Display animals={animals} />
+          <NotFound />
         ) : (
-          <h1>Searching...</h1>
+          <>
+            <Nav />
+            <div className="filterLink">
+              <Link to={`/${animal}s/${zip}/1`}>
+                <h5>Search New Filter</h5>
+              </Link>
+            </div>
+            <Display animals={animals} />
+            <Pagination
+              direction={`filter`}
+              afterAnimal={`${breed}/${size}/${sex}`}
+              zipOrId={zip}
+              page={page}
+              animals={animals}
+              animal={animal}
+            />
+          </>
         )}
-
-        {animals !== null && animals !== undefined ? (
-          <Pagination
-            direction={`filter`}
-            afterAnimal={`${breed}/${size}/${sex}`}
-            zipOrId={zip}
-            page={page}
-            animals={animals}
-            animal={animal}
-          />
-        ) : null}
       </div>
     );
   }

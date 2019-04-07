@@ -6,6 +6,7 @@ import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 import Nav from "../../Nav/Nav";
 import Sort from "../Sort/Sort";
+import NotFound from "../NotFound/NotFound";
 
 class Farm extends Component {
   state = {
@@ -49,31 +50,30 @@ class Farm extends Component {
 
     return (
       <div className="Shelter">
-        <Nav />
-        <Sort
-          animal="barnyard"
-          onBreed={this.onBreed}
-          onSize={this.onSize}
-          onSex={this.onSex}
-          Breed={Breed}
-          Size={Size}
-          Sex={Sex}
-          zip={zip}
-        />
-        {animals !== null && animals[1] ? (
-          <Display animals={animals} />
+        {animals === null || animals === undefined ? (
+          <NotFound />
         ) : (
-          <h1>Searching...</h1>
+          <>
+            <Nav />
+            <Sort
+              animal="barnyard"
+              onBreed={this.onBreed}
+              onSize={this.onSize}
+              onSex={this.onSex}
+              Breed={Breed}
+              Size={Size}
+              Sex={Sex}
+              zip={zip}
+            />
+            <Display animals={animals} />
+            <Pagination
+              direction={`farmAnimals`}
+              zipOrId={zip}
+              page={page}
+              animals={animals}
+            />
+          </>
         )}
-
-        {animals !== null ? (
-          <Pagination
-            direction={`farmAnimals`}
-            zipOrId={zip}
-            page={page}
-            animals={animals}
-          />
-        ) : null}
       </div>
     );
   }

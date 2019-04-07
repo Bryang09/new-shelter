@@ -6,6 +6,7 @@ import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 import Nav from "../../Nav/Nav";
 import Sort from "../Sort/Sort";
+import NotFound from "../NotFound/NotFound";
 
 class Reptiles extends Component {
   state = {
@@ -47,33 +48,34 @@ class Reptiles extends Component {
     const page = this.props.match.params.page;
     const zip = this.props.match.params.zip;
 
+    console.log(animals);
+
     return (
       <div className="Shelter">
-        <Nav />
-        <Sort
-          animal="reptile"
-          onBreed={this.onBreed}
-          onSize={this.onSize}
-          onSex={this.onSex}
-          Breed={Breed}
-          Size={Size}
-          Sex={Sex}
-          zip={zip}
-        />
-        {animals !== null && animals[1] ? (
-          <Display animals={animals} />
+        {animals === undefined || animals === null ? (
+          <NotFound />
         ) : (
-          <h1>Searching...</h1>
+          <>
+            <Nav />
+            <Sort
+              animal="reptile"
+              onBreed={this.onBreed}
+              onSize={this.onSize}
+              onSex={this.onSex}
+              Breed={Breed}
+              Size={Size}
+              Sex={Sex}
+              zip={zip}
+            />
+            <Display animals={animals} />
+            <Pagination
+              direction={`reptiles`}
+              zipOrId={zip}
+              page={page}
+              animals={animals}
+            />
+          </>
         )}
-
-        {animals !== null ? (
-          <Pagination
-            direction={`reptiles`}
-            zipOrId={zip}
-            page={page}
-            animals={animals}
-          />
-        ) : null}
       </div>
     );
   }

@@ -6,6 +6,7 @@ import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 import Nav from "../../Nav/Nav";
 import Hero from "./Hero/Hero";
+import NotFound from "../NotFound/NotFound";
 
 class Shelter extends Component {
   state = {
@@ -27,10 +28,8 @@ class Shelter extends Component {
       .catch(err => console.log(err));
   };
 
-  timeout = () => {};
-
   render() {
-    const { animals, hero } = this.state;
+    const { animals } = this.state;
 
     const page = this.props.match.params.page;
     const id = this.props.match.params.id;
@@ -39,27 +38,22 @@ class Shelter extends Component {
 
     return (
       <div className="Shelter">
-        <Nav />
-        <Hero
-          hero={hero}
-          animals={
-            animals !== null ? animals : [{ info: "Loading" }, { infoL: "" }]
-          }
-        />
-        {animals !== null && animals[1] ? (
-          <Display animals={animals} />
+        {animals === undefined || animals === null ? (
+          <NotFound />
         ) : (
-          <h1>Searching...</h1>
+          <>
+            <Nav />
+            <Hero animals={animals} />
+            <Display animals={animals} />
+            <Pagination
+              direction={`shelter`}
+              zipOrId={id}
+              page={page}
+              animals={animals}
+            />
+            <Nav />
+          </>
         )}
-
-        {animals !== null ? (
-          <Pagination
-            direction={`shelter`}
-            zipOrId={id}
-            page={page}
-            animals={animals}
-          />
-        ) : null}
       </div>
     );
   }

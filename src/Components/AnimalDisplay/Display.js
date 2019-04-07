@@ -6,6 +6,7 @@ import "./Display.scss";
 
 const Display = props => {
   const { animals } = props;
+  console.log(animals);
 
   const animal = animals.map((res, i) => {
     return (
