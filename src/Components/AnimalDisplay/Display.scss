@@ -72,3 +72,57 @@
 .Shelter {
   background: #fafafafa;
 }
+
+@media screen and (max-width: 1192px) {
+  .Display {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .Display {
+    width: 85vw;
+    .Animal {
+      width: 30%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .Display {
+    .Animal {
+      width: 47%;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .Display {
+    .Animal {
+      height: 25vh;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
+}
+
+@media screen and (max-width: 1025px) and (min-aspect-ratio: 4/3) {
+  .Display {
+    width: 85vw;
+    .Animal {
+      width: 30%;
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+  .Display {
+    .Animal {
+      height: 70vh;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
+}

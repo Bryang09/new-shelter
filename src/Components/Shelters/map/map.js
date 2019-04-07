@@ -13,7 +13,7 @@ const Map = props => {
     const threes = (i + 1) % 3 === 0;
 
     return (
-      <Link to={`/shelter/${res.id.$t}/1`}>
+      <Link to={`/shelter/${res.id.$t}/1`} key={i}>
         <div
           className={
             even && threes
