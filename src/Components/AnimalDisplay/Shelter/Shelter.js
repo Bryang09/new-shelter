@@ -9,8 +9,7 @@ import Hero from "./Hero/Hero";
 
 class Shelter extends Component {
   state = {
-    animals: null,
-    hero: "full"
+    animals: null
   };
 
   componentWillMount = () => {
@@ -30,11 +29,6 @@ class Shelter extends Component {
 
   timeout = () => {};
 
-  componentDidMount = () => {
-    return setTimeout(() => {
-      this.setState({ hero: "compressed " });
-    }, 2000);
-  };
   render() {
     const { animals, hero } = this.state;
 
@@ -52,7 +46,6 @@ class Shelter extends Component {
             animals !== null ? animals : [{ info: "Loading" }, { infoL: "" }]
           }
         />
-        <h1>Shelter</h1>
         {animals !== null && animals[1] ? (
           <Display animals={animals} />
         ) : (
@@ -61,7 +54,7 @@ class Shelter extends Component {
 
         {animals !== null ? (
           <Pagination
-            type="shelter"
+            direction={`shelter`}
             zipOrId={id}
             page={page}
             animals={animals}

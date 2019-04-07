@@ -3,16 +3,14 @@ import React from "react";
 import "./Hero.scss";
 
 const Hero = props => {
-  const { hero, animals } = props;
-
-  console.log(hero);
+  const { animals } = props;
 
   const info = animals[0].contact;
 
   console.log(info);
 
   return (
-    <div className={`shelterHero ${hero}`}>
+    <div className={`shelterHero compressed`}>
       {info !== undefined ? (
         <div>
           <h1>{info.address1.$t}</h1>
