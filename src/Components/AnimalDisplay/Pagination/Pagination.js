@@ -16,7 +16,6 @@ class Pagination extends Component {
       page,
       animals,
       animal,
-      total,
       afterAnimal
     } = this.props;
 

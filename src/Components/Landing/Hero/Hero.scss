@@ -3,11 +3,12 @@ $button: #4d6bff;
 .Hero {
   height: 100vh;
   display: flex;
+  width: 100vw;
 
   .heroImg {
     background: url(../img/hero.jpg) no-repeat center center / cover;
     height: 100vh;
-    width: 50vw;
+    width: 48vw;
   }
 
   .title {
@@ -69,4 +70,65 @@ $button: #4d6bff;
   100% {
     opacity: 1;
   }
+}
+
+@media screen and (max-width: 1192px) {
+  .Hero {
+    width: 100vw;
+    .heroImg {
+      position: absolute;
+      width: 100vw;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80)
+          no-repeat center center / cover;
+      background-attachment: fixed;
+    }
+
+    .title {
+      position: absolute;
+      width: 100vw;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      h1 {
+        color: #fff;
+        font-size: 28px;
+      }
+
+      input {
+        background: #333;
+        border: none;
+        color: #fff;
+      }
+
+      h5 {
+        padding: 2vh 3vw;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Hero {
+    .title {
+      h1 {
+        font-size: 24px;
+      }
+      h5 {
+        padding: 1.5vh 5vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+  .Hero {
+    .heroImg {
+      background-position: center 25%;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
 }

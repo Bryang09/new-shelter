@@ -23,6 +23,11 @@ $color: #4d6bff;
       display: flex;
       transition: 1s ease;
 
+      h4 {
+        font-size: 20px;
+        text-align: center;
+      }
+
       &:nth-child(1) {
         &:hover {
           background: $color;
@@ -172,9 +177,4 @@ $color: #4d6bff;
     no-repeat center center / contain;
   height: 80%;
   margin: auto 0;
-}
-
-h4 {
-  font-size: 20px;
-  text-align: center;
 }
