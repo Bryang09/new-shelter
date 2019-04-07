@@ -32,7 +32,7 @@ const Map = props => {
           <div className="info">
             <h5>{res.address1.$t}</h5>
             <h5>
-              {res.city.$t}, {res.state.$t}
+              {res.city.$t}, {res.state.$t} {res.zip.$t}
             </h5>
             <h6>{res.phone.$t}</h6>
             <h6>{res.email.$t}</h6>

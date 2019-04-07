@@ -3,4 +3,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h1 {
+    align-self: flex-start;
+    margin-left: 11vw;
+    margin-top: 10vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Shelters {
+    h1 {
+      font-size: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .Shelters {
+    h1 {
+      font-size: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+  .Shelters {
+    h1 {
+      font-size: 20px;
+      margin-left: 7vw;
+    }
+  }
 }

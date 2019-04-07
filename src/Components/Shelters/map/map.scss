@@ -59,3 +59,52 @@
     }
   }
 }
+
+@media screen and (max-width: 1192px) {
+  .sheltersContainer {
+    a {
+      width: 30%;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .sheltersContainer {
+    a {
+      width: 47%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 600px) {
+  .sheltersContainer {
+    a {
+      width: 97%;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
+}
+
+@media screen and (max-width: 1025px) and (min-aspect-ratio: 4/3) {
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+  .sheltersContainer {
+    width: 90vw;
+    .shelter {
+      height: 60vh;
+
+      h5 {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
+}
