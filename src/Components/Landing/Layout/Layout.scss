@@ -95,10 +95,12 @@ $color: #4d6bff;
     .largeOption {
       width: 100%;
       height: 40vh;
+      margin: 0 1.5% 2vh;
       background: #333;
-      margin: 2vh auto;
+      // margin: 2vh auto;
       display: flex;
       transition: 1s ease;
+      color: #fff;
 
       .input {
         width: 50%;
@@ -111,6 +113,9 @@ $color: #4d6bff;
         input[type="text"] {
           padding: 1vh 1vw;
           border: none;
+          background: #000;
+          background: darken(#333, 5%);
+
           &:active {
             border: 1px solid $color;
           }
@@ -177,4 +182,106 @@ $color: #4d6bff;
     no-repeat center center / contain;
   height: 80%;
   margin: auto 0;
+}
+
+@media screen and (max-width: 1192px) {
+  .dog,
+  .cat,
+  .smallAnimal,
+  .bird,
+  .farm,
+  .reptile {
+    height: 40%;
+  }
+
+  .Layout {
+    .layoutContainer {
+      .smallOption {
+        width: 100%;
+        height: 35vh;
+
+        h4 {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .Layout {
+    .layoutContainer {
+      .smallOption {
+        h4 {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Layout {
+    .layoutContainer {
+      .smallOption,
+      .largeOption {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .input {
+          padding-bottom: 5vh;
+          width: 100%;
+        }
+        h4 {
+          font-size: 16px;
+          width: 90%;
+        }
+      }
+    }
+
+    .largeOption {
+      .img {
+        height: 40%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
+}
+
+@media screen and (max-width: 1025px) and (min-aspect-ratio: 4/3) {
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+  .horse {
+    height: 50%;
+  }
+  .Layout {
+    .layoutContainer {
+      .smallOption,
+      .largeOption {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+        margin-bottom: 5vh;
+
+        .input {
+          text-align: center;
+          padding-bottom: 5vh;
+          width: 100%;
+        }
+        h4 {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
 }
