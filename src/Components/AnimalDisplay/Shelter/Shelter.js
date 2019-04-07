@@ -5,10 +5,12 @@ import { REQUEST, KEY } from "../../keys";
 import Display from "../Display";
 import Pagination from "../Pagination/Pagination";
 import Nav from "../../Nav/Nav";
+import Hero from "./Hero/Hero";
 
 class Shelter extends Component {
   state = {
-    animals: null
+    animals: null,
+    hero: "full"
   };
 
   componentWillMount = () => {
@@ -26,19 +28,30 @@ class Shelter extends Component {
       .catch(err => console.log(err));
   };
 
-  render() {
-    const { animals } = this.state;
+  timeout = () => {};
 
-    // console.log(animals.length);
+  componentDidMount = () => {
+    return setTimeout(() => {
+      this.setState({ hero: "compressed " });
+    }, 2000);
+  };
+  render() {
+    const { animals, hero } = this.state;
 
     const page = this.props.match.params.page;
     const id = this.props.match.params.id;
 
-    console.log(page);
+    console.log(animals);
 
     return (
       <div className="Shelter">
         <Nav />
+        <Hero
+          hero={hero}
+          animals={
+            animals !== null ? animals : [{ info: "Loading" }, { infoL: "" }]
+          }
+        />
         <h1>Shelter</h1>
         {animals !== null && animals[1] ? (
           <Display animals={animals} />

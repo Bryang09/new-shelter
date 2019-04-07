@@ -1,0 +1,34 @@
+.shelterHero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(https://images.pexels.com/photos/460823/pexels-photo-460823.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
+      no-repeat center center / cover;
+  display: flex;
+  transition: 1s ease;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.full {
+  height: 100vh;
+
+  h1 {
+    font-size: 35px;
+  }
+}
+
+.compressed {
+  height: 40vh;
+
+  h1 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 18px;
+    text-align: start;
+  }
+}

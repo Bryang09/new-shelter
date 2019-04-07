@@ -7,14 +7,10 @@ import "./map.scss";
 const Map = props => {
   const { shelters } = props;
 
-  console.log(shelters);
-
   const shelter = shelters.map((res, i) => {
     const even = (i + 1) % 2 === 0;
     const odd = (i + 1) % 2 !== 0;
     const threes = (i + 1) % 3 === 0;
-
-    console.log(`Even ${even} Odd ${odd} Threes ${threes}`);
 
     return (
       <Link to={`/shelter/${res.id.$t}/1`}>

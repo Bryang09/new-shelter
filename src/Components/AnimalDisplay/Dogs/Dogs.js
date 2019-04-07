@@ -47,8 +47,6 @@ class Dogs extends Component {
     const page = this.props.match.params.page;
     const zip = this.props.match.params.zip;
 
-    console.log(animals);
-
     return (
       <div className="Shelter">
         <Nav />

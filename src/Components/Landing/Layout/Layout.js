@@ -24,8 +24,6 @@ const Layout = props => {
     onHorse
   } = props;
 
-  console.log(dogZip, catZip);
-
   const layout = lay.map(res => {
     const checkDogs = res.name === "Dogs";
     const checkCats = res.name === "Cats";

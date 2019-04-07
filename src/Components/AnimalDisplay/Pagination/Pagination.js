@@ -15,11 +15,7 @@ const Pagination = props => {
     afterAnimal
   } = props;
 
-  console.log(animals.length);
-
   const display = animals.length >= 50;
-
-  console.log(display);
 
   const checkFilter = direction === "filter";
 

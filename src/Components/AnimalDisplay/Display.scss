@@ -1,6 +1,5 @@
 .Display {
   width: 70vw;
-  border: 1px solid #333;
   justify-content: center;
   align-items: center;
   margin: 2vh auto;
@@ -12,7 +11,64 @@
     margin: 1vh 0.8%;
     height: 35vh;
     border: 1px solid #eee;
-    background-position: center center;
-    background-size: cover;
+
+    .img {
+      height: 100%;
+      width: 100%;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      .info {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.7);
+        flex-direction: column;
+        color: #fff;
+        transition: 0.4s;
+        &:hover {
+          opacity: 1;
+        }
+
+        .name {
+          font-size: 22px;
+          font-weight: 400;
+          margin-bottom: 8px;
+        }
+
+        h4 {
+          font-size: 18px;
+          margin: 0;
+          font-weight: 300;
+        }
+      }
+    }
   }
+}
+
+.filterLink {
+  // color: #fff;
+  width: 12vw;
+  margin-left: 14.5vw;
+
+  a {
+    color: #fff;
+  }
+
+  h5 {
+    border: 1px solid #4d6bff;
+    background: #4d6bff;
+    text-align: center;
+    font-weight: 400;
+    padding: 1vh 2vw;
+    margin: 0;
+  }
+}
+
+.Shelter {
+  background: #fafafafa;
 }

@@ -31,8 +31,6 @@ class Filtered extends Component {
     const checkSize = size !== "any";
     const checkSex = sex !== "both";
 
-    console.log(`Breed ${breed}, Animal: ${animal}`);
-
     // CHECK ALL
     checkBreed && checkSize && checkSex
       ? axios
@@ -106,7 +104,6 @@ class Filtered extends Component {
     this.setState({ Sex: e.target.value });
   };
   render() {
-    console.log(this.props);
     const { animals, Breed, Size, Sex } = this.state;
 
     const page = this.props.match.params.page;
@@ -116,15 +113,15 @@ class Filtered extends Component {
     const size = this.props.match.params.size;
     const sex = this.props.match.params.sex;
 
-    console.log(animals === undefined);
-    console.log(animals);
-
     return (
       <div className="Shelter">
         <Nav />
-        <Link to={`/${animal}s/${zip}/1`}>
-          <h5>Search New Filter</h5>
-        </Link>
+        <div className="filterLink">
+          <Link to={`/${animal}s/${zip}/1`}>
+            <h5>Search New Filter</h5>
+          </Link>
+        </div>
+
         {animals === undefined || animals === null ? (
           <h4>No Results Found</h4>
         ) : animals !== null && animals[1] ? (

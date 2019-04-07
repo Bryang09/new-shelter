@@ -16,8 +16,6 @@ class Landing extends Component {
   };
 
   onShelterShow = () => {
-    console.log("click");
-
     this.setState({ shelter: true });
   };
 
@@ -76,8 +74,6 @@ class Landing extends Component {
       reptileZip,
       horseZip
     } = this.state;
-
-    console.log(dogZip);
 
     return (
       <div className="Landing">
