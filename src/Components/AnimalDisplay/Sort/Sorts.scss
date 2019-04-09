@@ -2,17 +2,39 @@ $button: #4d6bff;
 
 .Sort {
   height: 150px;
-  width: 50vw;
-  margin: 0 auto 2vh;
+  width: 68vw;
+  margin: 10vh auto 2vh;
   display: flex;
+  box-shadow: 1px 1px 15px #eee;
+  transition: 1s ease;
+
+  .sortBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    h4 {
+      font-size: 25px;
+      cursor: pointer;
+      margin: 1vh auto;
+
+      img {
+        height: 14px;
+        width: 17px;
+      }
+    }
+  }
 
   .sort {
-    width: 32%;
+    width: 25%;
     margin: 0 0.9%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: 1s ease;
+    animation: button 1s linear;
   }
 
   a {
@@ -43,6 +65,7 @@ select {
   border: 1px solid #eee;
   padding: 1vh 1vw;
   cursor: pointer;
+  appearance: none;
 }
 
 @keyframes button {
@@ -52,4 +75,64 @@ select {
   100% {
     opacity: 1;
   }
+}
+
+@media screen and (max-width: 1192px) {
+  .Sort {
+    width: 78vw;
+    .sort {
+      h3 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .Sort {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Sort {
+    flex-direction: column;
+    height: 100%;
+    .sortBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      h4 {
+        font-size: 25px;
+        cursor: pointer;
+      }
+    }
+
+    .sort {
+      width: 100%;
+    }
+
+    a {
+      margin: 4vh auto;
+      width: 30%;
+      padding: 1vh 1.5vw;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+}
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
+}
+
+@media screen and (max-width: 1025px) and (min-aspect-ratio: 4/3) {
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+}
+
+@media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
 }

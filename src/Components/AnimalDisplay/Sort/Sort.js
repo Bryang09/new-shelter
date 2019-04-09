@@ -9,7 +9,8 @@ import { REQUEST, KEY } from "../../keys";
 
 class Sort extends Component {
   state = {
-    breeds: null
+    breeds: null,
+    sort: false
   };
 
   componentWillMount = () => {
@@ -22,8 +23,12 @@ class Sort extends Component {
       .catch(err => console.log(err));
   };
 
+  onSortClick = () => {
+    this.setState({ sort: !this.state.sort });
+  };
+
   render() {
-    const { breeds } = this.state;
+    const { breeds, sort } = this.state;
     const {
       onBreed,
       onSize,
@@ -39,11 +44,23 @@ class Sort extends Component {
     const checkSize = Size.length > 0;
     const checkSex = Sex.length > 0;
 
-
     return (
       <div className="Sort">
-        <div className="sort breed">
-          <h3>Sort By Breed</h3>
+        <div
+          className="sortBox"
+          onClick={this.onSortClick}
+          style={sort ? { display: "none" } : { display: "flex" }}
+        >
+          <h4>
+            Filter{" "}
+            <img src="https://img.icons8.com/ios/50/000000/expand-arrow-filled.png" />
+          </h4>
+        </div>
+        <div
+          className="sort breed"
+          style={sort ? { display: "flex" } : { display: "none" }}
+        >
+          <h3>Filter By Breed</h3>
           {breeds !== null ? (
             <select onChange={onBreed}>
               {breeds.map((res, i) => {
@@ -56,16 +73,22 @@ class Sort extends Component {
             </select>
           ) : null}
         </div>
-        <div className="sort size">
-          <h3>Sort By Size</h3>
+        <div
+          className="sort size"
+          style={sort ? { display: "flex" } : { display: "none" }}
+        >
+          <h3>Filter By Size</h3>
           <select onChange={onSize}>
             <option value="S">Small</option>
             <option value="M">Medium</option>
             <option value="L">Large</option>
           </select>
         </div>
-        <div className="sort sex">
-          <h3>Sort By Sex</h3>
+        <div
+          className="sort sex"
+          style={sort ? { display: "flex" } : { display: "none" }}
+        >
+          <h3>Filter By Sex</h3>
           <select onChange={onSex}>
             <option value="M">Male</option>
             <option value="F">Female</option>
