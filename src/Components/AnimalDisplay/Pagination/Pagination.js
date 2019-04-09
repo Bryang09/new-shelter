@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 
 class Pagination extends Component {
   state = {
-    pagesArray: [1, 2, 3, 4, 5]
+    // prettier-ignore
+    pagesArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15,16,17,18,19,20]
   };
 
   render() {
@@ -14,7 +15,6 @@ class Pagination extends Component {
       direction,
       zipOrId,
       page,
-      animals,
       animal,
       afterAnimal,
       numberOfPages
@@ -22,14 +22,7 @@ class Pagination extends Component {
 
     const { pagesArray } = this.state;
 
-    console.log(pagesArray);
-    console.log(pagesArray.length);
-
-    const display = animals.length >= 50;
-
     const checkFilter = direction === "filter";
-
-    console.log(numberOfPages);
 
     const mapPages = pagesArray
       .filter(i => i <= parseInt(numberOfPages))
@@ -53,7 +46,7 @@ class Pagination extends Component {
     return (
       <div
         className="Pagination"
-        style={display ? { display: "flex" } : { display: "none" }}
+        // style={display ? { display: "flex" } : { display: "none" }}
       >
         {mapPages}
       </div>

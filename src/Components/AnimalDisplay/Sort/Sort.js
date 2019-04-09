@@ -39,7 +39,6 @@ class Sort extends Component {
       zip,
       animal
     } = this.props;
-
     const checkBreed = Breed.length > 0;
     const checkSize = Size.length > 0;
     const checkSex = Sex.length > 0;
@@ -53,7 +52,10 @@ class Sort extends Component {
         >
           <h4>
             Filter{" "}
-            <img src="https://img.icons8.com/ios/50/000000/expand-arrow-filled.png" />
+            <img
+              alt="icon"
+              src="https://img.icons8.com/ios/50/000000/expand-arrow-filled.png"
+            />
           </h4>
         </div>
         <div

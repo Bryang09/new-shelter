@@ -115,6 +115,7 @@ $color: #4d6bff;
           border: none;
           background: #000;
           background: darken(#333, 5%);
+          color: #fff;
 
           &:active {
             border: 1px solid $color;

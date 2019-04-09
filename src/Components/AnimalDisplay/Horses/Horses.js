@@ -11,6 +11,7 @@ import NotFound from "../NotFound/NotFound";
 class Horses extends Component {
   state = {
     animals: null,
+    animalsPassed: null,
     Breed: "",
     Size: "",
     Sex: ""
@@ -18,16 +19,50 @@ class Horses extends Component {
 
   componentWillMount = () => {
     const zip = parseInt(this.props.match.params.zip);
-    const page = parseInt(this.props.match.params.page);
-    const offset = page === 1 ? 0 : page === 2 ? 50 : page === 3 ? 100 : 1;
-    const count = 50;
+    const count = 1000;
 
     axios
       .get(
-        `${REQUEST}/pet.find?format=json&key=${KEY}&location=${zip}&offset=${offset}&animal=horse&count=${count}`
+        `${REQUEST}/pet.find?format=json&key=${KEY}&location=${zip}&animal=horse&count=${count}`
       )
-      .then(res => this.setState({ animals: res.data.petfinder.pets.pet }))
+      .then(res =>
+        this.setState({ animals: res.data.petfinder.pets.pet }, this.onPage)
+      )
       .catch(err => console.log(err));
+  };
+
+  onPage = () => {
+    const { animals } = this.state;
+    const page = parseInt(this.props.match.params.page);
+
+    const pageResults = page * 50;
+
+    const indexNotWanted =
+      page === 1
+        ? 0
+        : page === 2
+        ? 50
+        : page === 3
+        ? 100
+        : page === 4
+        ? 150
+        : page === 5
+        ? 200
+        : page === 6
+        ? 250
+        : page === 7
+        ? 300
+        : page === 8
+        ? 350
+        : page === 9
+        ? 400
+        : 450;
+
+    const indexedPassed = animals.filter(
+      (res, i) => i < pageResults && i > indexNotWanted
+    );
+
+    this.setState({ animalsPassed: indexedPassed });
   };
 
   onBreed = e => {
@@ -42,14 +77,18 @@ class Horses extends Component {
     this.setState({ Sex: e.target.value });
   };
   render() {
-    const { animals, Breed, Size, Sex } = this.state;
+    const { animals, Breed, Size, Sex, animalsPassed } = this.state;
 
     const page = this.props.match.params.page;
     const zip = this.props.match.params.zip;
 
+    const totalResults = animals !== null ? animals.length : 1;
+
+    const numberOfPages = animals !== null ? Math.ceil(totalResults / 50) : 1;
+
     return (
       <div className="Shelter">
-        {animals === undefined || animals === null ? (
+        {animalsPassed === undefined || animalsPassed === null ? (
           <NotFound />
         ) : (
           <>
@@ -64,12 +103,13 @@ class Horses extends Component {
               Sex={Sex}
               zip={zip}
             />
-            <Display animals={animals} />
+            <Display animals={animalsPassed} />
             <Pagination
               direction={`horses`}
               zipOrId={zip}
               page={page}
               animals={animals}
+              numberOfPages={numberOfPages}
             />
           </>
         )}
