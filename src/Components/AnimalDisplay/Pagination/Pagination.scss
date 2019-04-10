@@ -1,13 +1,15 @@
 .Pagination {
   display: flex;
   width: 30vw;
-  margin: 1vh auto;
+  margin: 1vh auto 2vh;
   justify-content: center;
   align-items: center;
+  box-shadow: 1px 1px 15px #eee;
 
   a {
     width: 33.33%;
     color: #333;
+    border: 1px solid #eee;
 
     &:hover {
       background: #4d6bff;
@@ -16,12 +18,24 @@
   }
   h4 {
     width: 100%;
-    border: 1px solid #eee;
+    // border: 1px solid #eee;
     height: 100%;
     margin: 0;
     padding: 1vh 0;
     text-align: center;
   }
+}
+
+.large {
+  width: 70vw;
+}
+
+.medium {
+  width: 50vw;
+}
+
+.small {
+  width: 30vw;
 }
 
 .Pagination .active {
@@ -31,4 +45,67 @@
   &:hover {
     background: lighten(#4d6bff, 2%);
   }
+}
+
+@media screen and (max-width: 1192px) {
+  .large {
+    width: 80vw;
+  }
+
+  .medium {
+    width: 60vw;
+  }
+
+  .small {
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .large {
+    width: 85vw;
+  }
+
+  .medium {
+    width: 65vw;
+  }
+
+  .small {
+    width: 45vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Pagination {
+    width: 85vw;
+    margin: 5vh auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 2vh 0;
+
+    a {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1366px) and (min-aspect-ratio: 4/3) {
+  .Pagination {
+    width: 85vw;
+    margin: 5vh auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 2vh 0;
+
+    a {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+}
+
+@media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
 }

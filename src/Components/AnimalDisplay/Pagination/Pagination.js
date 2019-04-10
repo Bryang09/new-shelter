@@ -43,9 +43,13 @@ class Pagination extends Component {
         );
       });
 
+    const classNames =
+      numberOfPages >= 15 ? "large" : numberOfPages >= 10 ? "medium" : "small";
+
+    console.log(classNames);
     return (
       <div
-        className="Pagination"
+        className={`Pagination ${classNames}`}
         // style={display ? { display: "flex" } : { display: "none" }}
       >
         {mapPages}
