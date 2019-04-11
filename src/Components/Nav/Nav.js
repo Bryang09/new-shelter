@@ -2,15 +2,21 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "./Nav.scss";
 
 const Nav = () => {
   return (
-    <div className="Nav">
+    <>
       <Link to="/">
-        <h2>Adopt-A-Pet</h2>
+        {" "}
+        <div className="Nav">
+          <FontAwesomeIcon icon="paw" size="2x" />
+          {/* <img src="http://clipart-library.com/images/8i686BBBT.gif" alt="" /> */}
+        </div>{" "}
       </Link>
-    </div>
+    </>
   );
 };
 

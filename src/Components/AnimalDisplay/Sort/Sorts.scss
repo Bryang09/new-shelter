@@ -3,7 +3,7 @@ $button: #4d6bff;
 .Sort {
   height: 150px;
   width: 68vw;
-  margin: 10vh auto 2vh;
+  margin: 15vh auto 2vh;
   display: flex;
   box-shadow: 1px 1px 15px #eee;
   transition: 1s ease;
@@ -91,6 +91,7 @@ select {
 @media screen and (max-width: 992px) {
   .Sort {
     width: 80vw;
+    margin-top: 15vh;
   }
 }
 @media screen and (max-width: 768px) {
@@ -104,7 +105,8 @@ select {
       width: 100%;
 
       h4 {
-        font-size: 25px;
+        font-size: 20px;
+
         cursor: pointer;
       }
     }
@@ -132,6 +134,10 @@ select {
 }
 
 @media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+  .Sort {
+    height: 100px;
+    margin: 25vh auto 10vh;
+  }
 }
 
 @media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
