@@ -83,7 +83,9 @@ class Landing extends Component {
           shelterZip={shelterZip}
           onShelter={this.onShelter}
         />
-
+        <h4 style={{ textAlign: "center" }}>
+          *Results will be from all over the country
+        </h4>
         <Layout
           onDog={this.onDog}
           dogZip={dogZip}
