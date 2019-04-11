@@ -6,14 +6,15 @@ const NotFound = () => {
     height: "100vh",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    background: "#efefe"
   };
 
   return (
     <>
       <Nav />
       <div className="notFound" style={styles}>
-        <h1>Results Not Found</h1>
+        <h1 style={{ fontWeight: 400 }}>Results Not Found</h1>
       </div>
     </>
   );

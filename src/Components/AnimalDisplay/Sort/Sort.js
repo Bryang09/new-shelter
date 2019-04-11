@@ -47,16 +47,17 @@ class Sort extends Component {
       <div className="Sort">
         <div
           className="sortBox"
-          onClick={this.onSortClick}
           style={sort ? { display: "none" } : { display: "flex" }}
         >
-          <h4>
-            Filter{" "}
-            <img
-              alt="icon"
-              src="https://img.icons8.com/ios/50/000000/expand-arrow-filled.png"
-            />
-          </h4>
+          <div>
+            <h4 onClick={this.onSortClick}>
+              Filter{" "}
+              <img
+                alt="icon"
+                src="https://img.icons8.com/ios/50/000000/expand-arrow-filled.png"
+              />
+            </h4>
+          </div>
         </div>
         <div
           className="sort breed"
