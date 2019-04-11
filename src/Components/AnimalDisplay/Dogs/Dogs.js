@@ -11,7 +11,7 @@ import NotFound from "../NotFound/NotFound";
 class Dogs extends Component {
   state = {
     animals: null,
-    animalsPasses: null,
+    animalsPassed: null,
 
     Breed: "",
     Size: "",
@@ -87,12 +87,10 @@ class Dogs extends Component {
     const totalResults = animals !== null ? animals.length : 1;
 
     const numberOfPages = animals !== null ? Math.ceil(totalResults / 50) : 1;
-
-    console.log(animals);
     return (
       <div className="Shelter">
         {animalsPassed === undefined || animalsPassed === null ? (
-          <NotFound />
+          <NotFound animals={animals} />
         ) : (
           <>
             <Nav />

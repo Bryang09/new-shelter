@@ -87,11 +87,10 @@ class Birds extends Component {
 
     const numberOfPages = animals !== null ? Math.ceil(totalResults / 50) : 1;
 
-    console.log(animals);
     return (
       <div className="Shelter">
         {animalsPassed === undefined || animalsPassed === null ? (
-          <NotFound />
+          <NotFound animals={animals} />
         ) : (
           <>
             <Nav />

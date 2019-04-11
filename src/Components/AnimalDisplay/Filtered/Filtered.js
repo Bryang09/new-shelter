@@ -117,7 +117,7 @@ class Filtered extends Component {
     return (
       <div className="Shelter">
         {animals === undefined || animals === null ? (
-          <NotFound />
+          <NotFound animals={animals} />
         ) : (
           <>
             <Nav />

@@ -92,7 +92,7 @@ class Reptiles extends Component {
     return (
       <div className="Shelter">
         {animalsPassed === undefined || animalsPassed === null ? (
-          <NotFound />
+          <NotFound animals={animals} />
         ) : (
           <>
             <Nav />

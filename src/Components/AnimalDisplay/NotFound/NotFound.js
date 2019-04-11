@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "../../Nav/Nav";
 
-const NotFound = () => {
+const NotFound = props => {
   const styles = {
     height: "100vh",
     display: "flex",
@@ -14,7 +14,11 @@ const NotFound = () => {
     <>
       <Nav />
       <div className="notFound" style={styles}>
-        <h1 style={{ fontWeight: 400 }}>Results Not Found</h1>
+        {props.animals !== null || props.animals !== undefined ? (
+          <h1 style={{ fontWeight: 400 }}>Searching...</h1>
+        ) : (
+          <h1 style={{ fontWeight: 400 }}>Results Not Found</h1>
+        )}
       </div>
     </>
   );
